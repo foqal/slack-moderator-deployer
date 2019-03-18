@@ -9,28 +9,44 @@ To create your own deployment of Slack Moderator,
 ## Heroku:
 
   1. Create the Heroku app if you haven't already.
-      `heroku apps:create [MY-APP-NAME]`
+      ```
+      heroku apps:create [MY-APP-NAME]
+      ```
 
   2. Login to Heroku container
-      `heroku container:login`
+      ```
+      heroku container:login
+      ```
 
   3. Push the image to Heroku
-      `heroku container:push web`
+      ```
+      heroku container:push web
+      ```
       
   4. Release the image to start.
-      `heroku container:release web`
+      ```
+      heroku container:release web
+      ```
 
 ## AWS:
   1. Build the docker image locally
-      `docker build -t [MY_APP] --no-cache .`
+      ```
+      docker build -t [MY_APP] --no-cache .
+      ```
 
   2. Login to ECR Registry.
-      `aws ecr get-login --no-include-email --region us-east-1`
+      ```
+      aws ecr get-login --no-include-email --region us-east-1
+      ```
 
      After running this script, this script will return a docker login command. Execute the returned command.
 
   3. Tag the image with AWS Registry
-      `docker tag [MY_APP]:latest [ECR_REGISTRY].dkr.ecr.us-east-1.amazonaws.com/[APP_NAME]:latest`
+      ```
+      docker tag [MY_APP]:latest [ECR_REGISTRY].dkr.ecr.us-east-1.amazonaws.com/[APP_NAME]:latest
+      ```
 
   4. Push the image to AWS Regsitry
-      `docker push [ECR_REGISTRY].dkr.ecr.us-east-1.amazonaws.com/[APP_NAME]`
+      ```
+      docker push [ECR_REGISTRY].dkr.ecr.us-east-1.amazonaws.com/[APP_NAME]
+      ```
